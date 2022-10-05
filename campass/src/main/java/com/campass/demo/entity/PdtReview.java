@@ -13,7 +13,8 @@ import lombok.ToString;
 @ToString
 public class PdtReview {
 	private Integer pReviewNo;
-	private LocalDate pReviewDate;
 	private Integer pStar;
 	private String pReviewContent;
+	private String bId;
+	private LocalDate pReviewDate;
 }
