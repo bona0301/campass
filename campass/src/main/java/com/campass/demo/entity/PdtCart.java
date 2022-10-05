@@ -13,4 +13,5 @@ public class PdtCart {
 	private Integer pdtCartNo;
 	private Integer pdtCartPrice;
 	private Integer pdtCartAmo;
+
 }
