@@ -1,4 +1,4 @@
-package com.campass.demo.entity;
+	package com.campass.demo.entity;
 
 import java.time.LocalDate;
 
@@ -16,7 +16,7 @@ public class POrder {
 	private LocalDate pOrderDate;
 	private Integer pOrderPrice;
 	
-	private Integer pOdtNo;			//구매내역 
+	private Integer pOdtNo;			// 주문상세
 	private Integer pOdtPrice;
 	private Integer pOrderAmo;
 	private String pOrderStatus;
