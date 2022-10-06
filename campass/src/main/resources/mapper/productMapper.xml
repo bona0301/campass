@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<select id="cateList" resultType="com.campass.demo.Product">
-	select * from product order by pCateCode;
-</select>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.campass.demo.dao.ProductDao">
+  <!-- 용품 리스트 -->
+  <select id="productList" resultType="com.campass.demo.dto.ProductDto">
+  	select * from product;
+  </select>
+  
+  <!-- 용품 개수 -->
+  <select id="productCount" resultType="int">
+  	select count(*) from product
+  </select>
+  
+  <!-- 카테고리 리스트 -->
+  <select id="cateList" resultType="com.campass.demo.dao.ProductDao">
+  	select * from pdtCate order by pCateCode
+  </select>
+  
+  <!-- 페이징 -->
+  <select id="findAll" resultType="com.campass.demo.dto.ProductDto$ProductPage">
+  	
+  </select>
+  
+  <!-- 상세페이지 읽기 -->
+  <select id="findById" resultType="com.campass.demo.dto.ProductDto$PdtDetail">
+  	<![CDATA[
+  		select*from product where pCode=#{pCode} and rownum<=1
+  	]]>
+  </select>
+</mapper>
