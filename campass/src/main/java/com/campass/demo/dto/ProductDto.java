@@ -1,18 +1,11 @@
 package com.campass.demo.dto;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-import com.campass.demo.entity.PdtReview;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -45,8 +38,7 @@ public class ProductDto {
 		private List<ProductDto> cateList;
 	}
 	
-	/////////////////////////////////////////////////////
-	
+	// 용품 상세페이지	
 	@Data
 	public static class PdtDetail {
 		private Integer pCode;
@@ -60,37 +52,5 @@ public class ProductDto {
 		private String pCateName;
 	}
 	
-	@Data	
-	public static class ReadReview {
-		private Integer pReviewNo;
-		private Integer pStar;
-		private String pReviewContent;
-		private String bId;
-		@JsonFormat(pattern="yyyy-MM-dd")
-		private LocalDate pReviewDate;
-	}
-	
-	@Data
-	@Builder
-	public static class WriteReview {
-		@NotEmpty
-		private Integer pStar;
-		@NotEmpty
-		private String pReviewContent;
-		@NotNull
-		private Integer pCode;
-		public PdtReview toEntity() {
-			return PdtReview.builder().pReviewContent(pReviewContent).pCode(pCode).build();
-		}
-	}
-	
-	
-	@Data
-	public static class DeleteReview {
-		@NotNull
-		private Integer pReviewNo;
-		@NotNull
-		private Integer pCode;
-	}
-	
+	// 리뷰는 pdtReviewDto
 }
