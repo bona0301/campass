@@ -24,7 +24,7 @@ public class ProductDaoTest {
 	
 	//@Test
 	public void countTest() {
-		assertEquals(50, dao.productCount(null));
+		assertEquals(50, dao.countProduct(null));
 	}
 	
 //	@Test

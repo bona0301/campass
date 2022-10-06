@@ -16,7 +16,7 @@ public interface ProductDao {
 	public List<ProductDto> productList();
 	
 	// 개수
-	public Integer productCount(Integer pCode);
+	public Integer countProduct(Integer pCode);
 	
 	// 카테고리 리스트 
 	public List<ProductDto> cateList();	
