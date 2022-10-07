@@ -2,8 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.campass.demo.dao.ProductDao">
   <!-- 용품 리스트 -->
-  <select id="productList" resultType="com.campass.demo.dto.ProductDto">
-  	select * from product
+  <select id="productList" resultType="com.campass.demo.dto.ProductDto$ForProductList">
+  	select 
+  		pCode,
+  		pName,
+  		pMainImg,
+  		pPrice,
+  		pCateCode 
+  	from product
+  	order by pName
   </select>
   
   <!-- 용품 개수 -->
@@ -11,20 +18,28 @@
   	select count(*) from product
   </select>
   
-  <!-- 카테고리 리스트 -->
-  <select id="cateList" resultType="com.campass.demo.dao.ProductDao">
-  	select * from pdtCate order by pCateCode
-  </select>
-  
   <!-- 페이징 -->
-  <select id="findAll" resultType="com.campass.demo.dto.ProductDto$ProductPage">
-  	
+    <select id="findAll" resultType="com.campass.demo.dto.ProductDto$ForProductList">
+	select * from  	
+  	(
+  		select rownum as rnum, p.* from 
+  			(select /*+ index_desc(board board_pk_bno) */ pCode, pName, pPrice, pCateCode from product  
+  			 order by pCode) p
+  		where rownum &lt;=#{end}
+  	)
+  	where rnum&gt;=#{start}
   </select>
   
   <!-- 상세페이지 읽기 -->
-  <select id="findById" resultType="com.campass.demo.dto.ProductDto$PdtDetail">
-  	<![CDATA[
-  		select*from product where pCode=#{pCode} and rownum<=1
-  	]]>
+  <select id="productDetail" resultType="com.campass.demo.dto.ProductDto$PdtDetail">
+  	select pCode,
+  		   	pName,
+			pContentImg,
+			pBrand,
+			pStarAvg,
+			pPrice,
+			pCateCode
+	from product
+	where pCode=#{pCode}
   </select>
 </mapper>

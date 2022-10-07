@@ -12,7 +12,7 @@ import org.springframework.stereotype.*;
 // 403를 처리하는 스프링 시큐리티 객체
 @Component
 public class MemberAccessDeniedHandler implements AccessDeniedHandler {
-	@Override
+	//@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
 		// 그런데....403이 발생했을 때
 		// MVC라면 에러페이지로 이동, REST면 에러메시지를 쏴준다

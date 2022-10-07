@@ -1,7 +1,5 @@
 package com.campass.demo.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -10,6 +8,6 @@ public interface BuyListDao {
 	//public List<POrderDto> ForOrderList();
 	
 	// 주문 총개수
-	public Integer countOrder(Integer pOrderNo);
+	//public Integer countOrder(Integer pOrderNo);
 	
 }
