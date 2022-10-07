@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.campass.demo.dao.PdtReviewDao">
-  <!-- 리뷰 목록페이지 -->
-  <select id="ReviewList" parameterType="int" resultType="com.campass.demo.dto.PdtReviewDto">
-  	select * from pdtReview where pCode=#{pCode}
+  <!-- 리뷰 목록페이지 물어보기 -->
+  <select id="reviewList" parameterType="int" resultType="com.campass.demo.dto.PdtReviewDto$ReadReviewList">
+  	select pReviewNo, pStar, pReviewContent, bId, pReviewDate from pdtReview
   </select>
   
-  <!-- 저장 -->
+  <!-- 등록 -->
   <insert id="saveReview" parameterType="com.campass.demo.dto.PdtReviewDto">
-  	insert into pdtReview values(pdtReview_seq.nextval,#{pReviewNo},#{pOrderNo},#{bId},
-  	#{pStar},#{pReviewContent},#{pCode},default)
+  	<selectKey keyProperty="pReviewNo" resultType="int" order="BEFORE">
+  		select nvl(max(pReviewNo),0)+1 from pdtReview
+  	</selectKey>
+  	insert into pReview(pReviewNo, pOrderNo, pOdtNo, pStar, pReviewContent, bId, pCode)
+  	values (#{pReviewNo},#{pOrderNo},#{pOdtNo},#{pStar},#{pReviewContent},#{bId},#{pCode})
   </insert>
   
+  <!-- 글쓴이 확인 -->
+  <select id="findById" resultType="String">
+  	select bId from pdtReview where pReviewNo=#{pReviewNo}
+  </select>
+  
   <!-- 삭제 -->
-  <delete id="deleteReview">
-  	delete from pdtReview where bId=#{bId}
+  <delete id="deletePdtReview">
+  	delete from pdtReview where pReviewNo=#{pReviewNo}
   </delete>
   
-  <delete id="deleteReview2" parameterType="map">
-  	delete from pdtReview where pReviewNo=#{pReviewNo} and bId=#{bId}
-  </delete>
+
 </mapper>
