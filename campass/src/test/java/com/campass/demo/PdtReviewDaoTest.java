@@ -21,6 +21,11 @@ public class PdtReviewDaoTest {
 	}
 	
 	//@Test
+	public void listTest() {
+		assertNotNull(dao.reviewList("spring"));
+	}
+	
+	//@Test 아직
 	public void SaveTest() {
 		PdtReview pdtReview = PdtReview.builder().pStar(1).pReviewContent("JMTGR").bId("spring").pCode(1).build();
 	
