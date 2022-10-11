@@ -17,16 +17,17 @@ public class PCartService {
 	PdtCartDao cartDao;
 	
 	// 장바구니 추가
-		public String pAddCart(PdtCartDto.pAddCart dto) {
+		public String pAddCart(PdtCartDto.pAddCart dto) throws Exception {
 			
 		PdtCart pdtcart = dto.toEntity();
-		cartDao.pAddCart(pdtcart);
-		return null;
 		
+		cartDao.pAddCart(pdtcart);
+		
+		return "상품을 추가했습니다.";
 	}
 		
 	// 장바구니 정보 리스트 
-		public List<PdtCartDto.Read> listCart(String bId) {
+		public List<PdtCartDto.Read> listCart(String bId) throws Exception {
 			
 			List<PdtCartDto.Read> cart = cartDao.listCart(bId);
 			

@@ -1,21 +1,18 @@
 package com.campass.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.campass.demo.service.PCartService;
 
 @Controller
 public class ViewController {
 	
-	@Autowired
-	private PCartService pcservice;
-	
-	@GetMapping("/product/pcart")
-	public ModelAndView list() {
-		
+	@GetMapping({"/", "/product/pcart"})
+	public ModelAndView listCart(HttpSession session) {
 		return new ModelAndView("/product/pcart");
 	}
-}
+	
+}	
