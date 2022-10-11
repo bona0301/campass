@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
+import com.campass.demo.entity.PdtReview;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AccessLevel;
@@ -13,12 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access=AccessLevel.PRIVATE)
 public class PdtReviewDto {
 	@Data
-	public static class SaveReview {
-		private Integer pStar;
-		private String pReviewContent;
-	}
-	
-	@Data
 	public static class ReadReviewList{
 		//private Integer pReviewNo;
 		private Integer pStar;
@@ -26,6 +21,16 @@ public class PdtReviewDto {
 		private String bId;
 		@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
 		private LocalDate pReviewDate;
+	}
+	
+	@Data
+	public static class SaveReview {
+		private Integer pStar;
+		private String pReviewContent;
+		
+		public PdtReview toEntity() {
+			return null;
+		}
 	}
 	
 	

@@ -19,8 +19,9 @@ public class PdtReview {
 	private LocalDate pReviewDate;
 	private Integer pCode;
 	
-	public PdtReview addWriter(String loginId) {
+	public PdtReview addWriter(String loginId, Integer pOdtNo) {
 		this.bId = loginId;
+		this.pOdtNo = pOdtNo;
 		return this;
 	}
 	
