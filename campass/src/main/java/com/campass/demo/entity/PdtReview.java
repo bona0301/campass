@@ -24,5 +24,4 @@ public class PdtReview {
 		this.pOdtNo = pOdtNo;
 		return this;
 	}
-	
 }

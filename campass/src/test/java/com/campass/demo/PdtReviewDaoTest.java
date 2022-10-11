@@ -25,15 +25,21 @@ public class PdtReviewDaoTest {
 		assertNotNull(dao.reviewList("spring"));
 	}
 	
-	//@Test 아직
+	
+	@Test
 	public void SaveTest() {
-		PdtReview pdtReview = PdtReview.builder().pStar(1).pReviewContent("JMTGR").bId("spring").pCode(1).build();
+		PdtReview pdtReview = PdtReview.builder().pStar(5).pOrderNo(1).pOdtNo(2).pReviewContent("JMTGR").bId("spring").pCode(1).build();
 	
 		assertEquals(1, dao.saveReview(pdtReview));
 	}
 	
-	@Test
+	//@Test
 	public void findById() {
 		assertEquals("spring", dao.findById(1).get());
+	}
+	
+	@Test
+	public void deleteTest() {
+		assertEquals(1, dao.deletePdtReview(1));
 	}
 }

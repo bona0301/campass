@@ -2,6 +2,7 @@ package com.campass.demo.dto;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.campass.demo.entity.PdtReview;
@@ -25,11 +26,15 @@ public class PdtReviewDto {
 	
 	@Data
 	public static class SaveReview {
+		@NotEmpty
 		private Integer pStar;
+		@NotEmpty
 		private String pReviewContent;
+		@NotNull
+		private Integer pOdtNo;
 		
 		public PdtReview toEntity() {
-			return null;
+			return PdtReview.builder().pStar(pStar).pReviewContent(pReviewContent).pOdtNo(pOdtNo).build();
 		}
 	}
 	
