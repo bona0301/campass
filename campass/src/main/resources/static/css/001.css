@@ -292,3 +292,11 @@
     font-weight: bold;
     color: #FF375B;
 }
+
+/* footer */
+#container #footer {
+    position: absolute;
+    z-index: 780;
+    left: 0;
+    bottom: 0;
+}
