@@ -197,73 +197,77 @@
 #section01 .category {
     position: absolute;
     left: 0;
-    top: 15%;
+    top: 0;
 }
 #section01 .category .line {
     position: absolute;
     width: 1920px;
     height: 60px;
-    background-color: lightcoral;
+    background-color: rgb(255, 255, 255);
 }
 
 #section01 .categoryText {
     position: relative;
     width: 1400px;
     height: 200px;
-    top: 15.75%;
+    top: 23.2%;
     left: 28%;
 }
 #section01 .categoryText .text01{
     position: absolute;
     left: 0;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 #section01 .categoryText .text01:hover{
     position: absolute;
     font-weight: bold;
+    color: #FF375B;
 }
 
 #section01 .categoryText .text02{
     position: absolute;
     left: 10%;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 #section01 .categoryText .text02:hover{
     position: absolute;
     font-weight: bold;
+    color: #FF375B;
 }
 
 #section01 .categoryText .text03{
     position: absolute;
     left: 20%;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
 #section01 .categoryText .text03:hover{
     position: absolute;
     font-weight: bold;
+    color: #FF375B;
 }
 
 
 #section01 .categoryText .text04{
     position: absolute;
     left: 32%;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
 #section01 .categoryText .text04:hover{
     position: absolute;
     font-weight: bold;
+    color: #FF375B;
 }
 
 #section01 .categoryText .text05{
     position: absolute;
     left: 45%;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -271,13 +275,14 @@
 #section01 .categoryText .text05:hover{
     position: absolute;
     font-weight: bold;
+    color: #FF375B;
 }
 
 
 #section01 .categoryText .text06{
     position: absolute;
     left: 55%;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -285,4 +290,5 @@
 #section01 .categoryText .text06:hover{
     position: absolute;
     font-weight: bold;
+    color: #FF375B;
 }
