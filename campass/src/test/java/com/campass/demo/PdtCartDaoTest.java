@@ -23,7 +23,7 @@ public class PdtCartDaoTest {
 	
 	// 장바구니 추가 
 	//@Test
-	public void pAddCartTest() {
+	public void pAddCartTest() throws Exception {
 		PdtCart pdtCart = PdtCart.builder().pdtCartAmo(1).bId("spring").pCode(100).build();
 		
 		assertEquals(1, cartDao.pAddCart(pdtCart));
@@ -31,7 +31,7 @@ public class PdtCartDaoTest {
 	
 	// 장바구니 삭제 
 	//@Test
-	public void cartAllDeleteTest() {
+	public void cartAllDeleteTest() throws Exception {
 		// 없어서 삭제 실패
 		assertEquals(0, cartDao.cartAllDelete(5));
 		// 삭제 성공
@@ -40,7 +40,7 @@ public class PdtCartDaoTest {
 	
 	// 장바구니 리스트
 	@Test
-	public void listTest() {
+	public void listTest() throws Exception {
 		System.out.println(cartDao.listCart("spring"));
 		assertEquals("스텔라릿지", cartDao.listCart("spring").get(0).getPName());
 	}

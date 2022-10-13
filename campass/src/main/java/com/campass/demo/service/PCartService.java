@@ -17,7 +17,7 @@ public class PCartService {
 	PdtCartDao cartDao;
 	
 	// 장바구니 추가
-		public String pAddCart(PdtCartDto.pAddCart dto) throws Exception {
+		public String pAddCart(PdtCartDto.pAddCart dto) {
 			
 		PdtCart pdtcart = dto.toEntity();
 		
@@ -27,14 +27,15 @@ public class PCartService {
 	}
 		
 	// 장바구니 정보 리스트 
-		public List<PdtCartDto.Read> listCart(String bId) throws Exception {
+		public List<PdtCartDto.Read> listCart(String bId) {
 			
-			List<PdtCartDto.Read> cart = cartDao.listCart(bId);
+			List<Read> cart = cartDao.listCart(bId);
 			
 			for(Read dto : cart) {
 				dto.initTotalPrice();
 			}
 			return cart;
 		}
-
+		
 }
+
