@@ -34,6 +34,7 @@
   <select id="productDetail" resultType="com.campass.demo.dto.ProductDto$PdtDetail">
   	select pCode,
   		   	pName,
+			pMainImg,
 			pContentImg,
 			pBrand,
 			pStarAvg,

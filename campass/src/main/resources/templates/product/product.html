@@ -2,16 +2,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>product</title>
 <link href="https://ifh.cc/g/NdOrVp.png" rel="icon">
-    <link rel="stylesheet" href="../../static/css/plugin/reset.css">
-    <link rel="stylesheet" href="../../static/css/plugin/common.css">
-    <link rel="stylesheet" href="../../static/css/001.css">
-	<script src="../../static/js/plugin/gsap.js"></script>
-	<script src="../../static/js/plugin/scrollTrigger.js"></script>
-	<script src="../../static/js/scrollbar.js"></script>
-	<script src="../../static/js/setting.js"></script>
-	<script src="../../static/js/001.js"></script>  
+    <link rel="stylesheet" href="/css/product/common.css">
+    <link rel="stylesheet" href="/css/product/main.css">
+    
+	<script src="/js/product/gsap.js"></script>
+	<script src="/js/product/scrollTrigger.js"></script>
+	<script src="/js/product/scrollbar.js"></script>
+	<script src="/js/product/setting.js"></script>
+	<script src="/js/product/main.js"></script>  
 </head>
 <body>
 <!-- 로고 -->
@@ -19,7 +20,6 @@
     <img src="https://ifh.cc/g/qzoPtk.png" width="120px" alt="캠패스_핑크로고">
 </h1>
 <!-- 로고 끝 -->
-
 
 <!-- 메뉴 -->
 <div id="full_menu">
@@ -120,7 +120,7 @@
     <section id="section01">
         <div class="category">
             <div class="cate_img">
-                <img src="https://ifh.cc/g/gkdz0G.jpg" alt="용품메인이미지">
+                <img src="https://ifh.cc/g/zRKsd8.jpg" alt="용품메인이미지">
             </div>
             <div class="line"></div>
         </div>
@@ -133,12 +133,29 @@
             <p class="text06">기타</p>
         </div>
 </section>
+<script>
+	// 페이징
+	function getPageno(){
+		const params = new URLSearchParams(location.search);
+		const pageno = params.get("pageno");
+		if(pageno==null)
+			return 1;
+		if(isNaN(pageno))
+			return 1;
+		if(pageno<1)
+			return 1;
+		return pageno;
+	}
+	
+	// 글출력
+	function productList(ProductList){
+		const $list = $('#list');
 
-
-
-    <footer id="footer">
-        <img src="https://ifh.cc/g/NMjHLc.png" alt="푸터박스">
-    </footer>
+	}
+</script>
 </section>
+<footer id="footer">
+        <img src="https://ifh.cc/g/NMjHLc.png" alt="푸터박스">
+</footer>
 </body>
 </html>

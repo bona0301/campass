@@ -1,0 +1,313 @@
+@charset "UTF-8";
+
+/* reset.css*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}img{vertical-align:top}a{text-decoration:none;outline:0}.clearfix{*zoom:1}.clearfix:after{content:"";display:block;clear:both}
+
+*{
+    width: 100%;
+}
+
+/* 로고 */
+.logo {
+    position: fixed;
+    z-index: 9999620;
+    left: 3%;
+    top: 5%;
+    width: 97px;
+    height: 43px;
+}
+/* 로고 끝 */
+
+
+/* 햄버거시작 */
+.hambuger {
+    position: fixed;
+    right: 3%;
+    top: 5%;
+    z-index: 9999999;
+    width: 66px;
+    height: 58px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* .hambuger .hambuger01 {
+    margin-bottom: 1px;
+} */
+
+.hambuger .box {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+}
+
+
+.hambuger .hambuger02 {
+    transform-origin: left top;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 1s;
+    /*transform: rotate(45deg);*/
+    /*transform: rotate(35deg);*/
+
+
+}
+
+.hambuger .hambuger03 {
+    transform-origin: center;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    transition: all 1s;
+    /*opacity: 0;*/
+    /*transform: translateX(-50px);*/
+
+
+}
+
+.hambuger .hambuger04 {
+    transform-origin: left top;
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    transition: all 0.5s;
+}
+
+.hambuger .box.on .hambuger02 {
+    transform: rotate(45deg);
+}
+
+.hambuger .box.on .hambuger03 {
+    transform: translateX(-50px);
+    opacity: 0;
+}
+
+.hambuger .box.on .hambuger04 {
+    transform: rotate(-45deg);
+
+}
+/* 햄버거끝 */
+
+
+/* 메뉴 */
+#full_menu {
+    width: 100vw;
+    height:100vh;
+    position: fixed;
+    left:0;
+    top:0;
+    background: rgba(0, 0, 0, 0.78);
+    z-index: 999999;
+    /* display: none; */
+}
+
+#full_menu {
+    /* background: url("https://ifh.cc/g/V4vDrj.jpg"); */
+    background: url("https://ifh.cc/g/0v0D6O.jpg");
+    width: 1920px;
+    height: 980px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: all 1s;
+}
+
+#full_menu.on {
+    transform: translateY(0);
+}
+
+
+#full_menu .menu_text > div {
+    cursor: pointer;
+}
+
+#full_menu .menu_text > div .menu_hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 1s;
+}
+
+#full_menu .menu_text > div .menu_hover:hover {
+    opacity: 1;
+}
+
+#full_menu .menu_text .menu_text01 {
+    position: absolute;
+    left:50%;
+    top:0;
+    transform: translateX(-50%);
+    margin-top: 280px;
+}
+
+/* 메뉴글씨위치 */
+#full_menu .menu_text .menu_text01 .menu01_hover .menu01_image{
+    position: absolute;
+    left: 300px;
+    top: 0px;
+}
+#full_menu .menu_text .menu_text02 {
+    position: absolute;
+    left:55.5%;
+    top:0;
+    transform: translateX(-50%);
+    margin-top: 360px;
+}
+#full_menu .menu_text .menu_text03 {
+    position: absolute;
+    left:52.8%;
+    top:0;
+    transform: translateX(-50%);
+    margin-top: 440px;
+}
+#full_menu .menu_text .menu_text04 {
+    position: absolute;
+    left:48.5%;
+    top:0;
+    transform: translateX(-50%);
+    margin-top: 520px;
+}
+#full_menu .menu_text .menu_text05 {
+    position: absolute;
+    left:59.4%;
+    top:0;
+    transform: translateX(-50%);
+    margin-top: 600px;
+}
+#full_menu .menu_text .menu_text06 {
+    position: absolute;
+    left:51.5%;
+    top:0;
+    transform: translateX(-50%);
+    margin-top: 680px;
+}
+/* 메뉴글씨위치끝 */
+
+
+
+#container {
+    width: 100%;
+    height: 3000px;
+}
+
+/* section1 시작 */
+#section01{
+    background-color: #F8F4F3;
+    width: 100%;
+    height: 3000px;
+    position: relative;
+}
+
+#section01 .category {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#section01 .category .line {
+    position: absolute;
+    width: 1920px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+}
+
+#section01 .categoryText {
+    position: relative;
+    width: 1400px;
+    height: 200px;
+    top: 18.3%;
+    left: 28%;
+}
+#section01 .categoryText .text01{
+    position: absolute;
+    left: 0;
+    color: black;
+    cursor: pointer;
+}
+#section01 .categoryText .text01:hover{
+    position: absolute;
+    font-weight: bold;
+    color: #FF375B;
+}
+
+#section01 .categoryText .text02{
+    position: absolute;
+    left: 10%;
+    color: black;
+    cursor: pointer;
+}
+#section01 .categoryText .text02:hover{
+    position: absolute;
+    font-weight: bold;
+    color: #FF375B;
+}
+
+#section01 .categoryText .text03{
+    position: absolute;
+    left: 20%;
+    color: black;
+    cursor: pointer;
+}
+
+#section01 .categoryText .text03:hover{
+    position: absolute;
+    font-weight: bold;
+    color: #FF375B;
+}
+
+
+#section01 .categoryText .text04{
+    position: absolute;
+    left: 32.5%;
+    color: black;
+    cursor: pointer;
+}
+
+#section01 .categoryText .text04:hover{
+    position: absolute;
+    font-weight: bold;
+    color: #FF375B;
+}
+
+#section01 .categoryText .text05{
+    position: absolute;
+    left: 46%;
+    color: black;
+    cursor: pointer;
+}
+
+
+#section01 .categoryText .text05:hover{
+    position: absolute;
+    font-weight: bold;
+    color: #FF375B;
+}
+
+
+#section01 .categoryText .text06{
+    position: absolute;
+    left: 55.5%;
+    color: black;
+    cursor: pointer;
+}
+
+
+#section01 .categoryText .text06:hover{
+    position: absolute;
+    font-weight: bold;
+    color: #FF375B;
+}
+
+/* footer */
+#container #footer {
+    position: absolute;
+    z-index: 780;
+    left: 0;
+    bottom: 0;
+}
+
+
+
