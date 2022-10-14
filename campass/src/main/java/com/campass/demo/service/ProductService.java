@@ -21,8 +21,8 @@ public class ProductService {
 	private Integer pagesize;
 	
 	// 용품 리스트 출력
-	public List<ProductDto.ForProductList> list(Integer pCode){
-		return dao.productList(pCode);
+	public List<ProductDto.ForProductList> list(){
+		return dao.productList();
 		
 	}
 	

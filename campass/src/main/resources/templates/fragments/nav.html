@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CAMPASS</title>
+
+<!-- favicons -->
+<link href="https://ifh.cc/g/NdOrVp.png" rel="icon">
+
+<!-- CSS -->
+    <link rel="stylesheet" href="css/plugin/reset.css">
+    <link rel="stylesheet" href="css/plugin/common.css">
+    <link rel="stylesheet" href="css/index.css">
+
+<!-- Bootstrap -->
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+<!-- JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/plugin/jquery-1.8.1.min.js"></script>
+    <script src="js/plugin/easing.js"></script>
+
+   <style>
+      /* 로고 */
+      .logo {
+          position: fixed;
+          z-index: 9999620;
+          left: 48px;
+          top: 21px;
+          width: 97px;
+          height: 43px;
+      }
+      /* 로고 끝 */
+      
+      
+      .hambuger {
+          position: fixed;
+          right: 70px;
+          top: 49px;
+          z-index: 9999999;
+          width: 66px;
+          height: 58px;
+          text-align: center;
+          cursor: pointer;
+      }
+      
+      /* .hambuger .hambuger01 {
+          margin-bottom: 1px;
+      } */
+      
+      .hambuger .box {
+          position: relative;
+          width: 28px;
+          height: 28px;
+          margin: 0 auto;
+      }
+      
+      
+      .hambuger .hambuger02 {
+          transform-origin: left top;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition: all 1s;
+          /*transform: rotate(45deg);*/
+          /*transform: rotate(35deg);*/
+      
+      
+      }
+      
+      .hambuger .hambuger03 {
+          transform-origin: center;
+          position: absolute;
+          left: 0;
+          top: 10px;
+          transition: all 1s;
+          /*opacity: 0;*/
+          /*transform: translateX(-50px);*/
+      
+      
+      }
+      
+      .hambuger .hambuger04 {
+          transform-origin: left top;
+          position: absolute;
+          left: 0px;
+          top: 20px;
+          transition: all 0.5s;
+      }
+      
+      .hambuger .box.on .hambuger02 {
+          transform: rotate(45deg);
+      }
+      
+      .hambuger .box.on .hambuger03 {
+          transform: translateX(-50px);
+          opacity: 0;
+      }
+      
+      .hambuger .box.on .hambuger04 {
+          transform: rotate(-45deg);
+      
+      }
+      
+      
+      /*.hambuger {*/
+      /*    position: fixed;*/
+      /*    right:50px;*/
+      /*    top:50px;*/
+      /*    z-index: 9999999;*/
+      /*    width: 66px;*/
+      /*    height:50px;*/
+      /*    text-align: center;*/
+      /*}*/
+      
+      #full_menu {
+          width: 100vw;
+          height:100vh;
+          position: fixed;
+          left:0;
+          top:0;
+          background: rgba(0, 0, 0, 0.78);
+          z-index: 999999;
+          /* display: none; */
+      }
+      
+      #full_menu {
+          /* background: url("https://ifh.cc/g/V4vDrj.jpg"); */
+          background: url("https://ifh.cc/g/0v0D6O.jpg");
+          width: 1920px;
+          height: 980px;
+          text-align: center;
+          transform: translateY(100%);
+          transition: all 1s;
+      }
+      
+      #full_menu.on {
+          transform: translateY(0);
+      }
+      
+      
+      
+      
+      #full_menu .menu_text > div {
+          cursor: pointer;
+      }
+      
+      #full_menu .menu_text > div .menu_hover {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          transition: all 1s;
+      }
+      
+      #full_menu .menu_text > div .menu_hover:hover {
+          opacity: 1;
+      }
+      
+      #full_menu .menu_text .menu_text01 {
+          position: absolute;
+          left:50%;
+          top:0;
+          transform: translateX(-50%);
+          margin-top: 280px;
+      }
+      
+      /* 메뉴글씨위치 */
+      #full_menu .menu_text .menu_text01 .menu01_hover .menu01_image{
+          position: absolute;
+          left: 300px;
+          top: 0px;
+      }
+      #full_menu .menu_text .menu_text02 {
+          position: absolute;
+          left:55.5%;
+          top:0;
+          transform: translateX(-50%);
+          margin-top: 360px;
+      }
+      #full_menu .menu_text .menu_text03 {
+          position: absolute;
+          left:52.8%;
+          top:0;
+          transform: translateX(-50%);
+          margin-top: 440px;
+      }
+      #full_menu .menu_text .menu_text04 {
+          position: absolute;
+          left:48.5%;
+          top:0;
+          transform: translateX(-50%);
+          margin-top: 520px;
+      }
+      #full_menu .menu_text .menu_text05 {
+          position: absolute;
+          left:59.4%;
+          top:0;
+          transform: translateX(-50%);
+          margin-top: 600px;
+      }
+      #full_menu .menu_text .menu_text06 {
+          position: absolute;
+          left:51.5%;
+          top:0;
+          transform: translateX(-50%);
+          margin-top: 680px;
+      }
+      /* 메뉴글씨위치끝 */
+   </style>
+   
+   
+</head>
+
+<body>
+
+<div class="posNum"></div>
+
+<button class="startPoint"></button>
+
+<!-- 로고 -->
+<h1 class="logo">
+    <!-- <img src="https://ifh.cc/g/3GoCAF.png" width="150px" alt="캠패스_하얀로고"> -->
+    <!-- <img src="https://ifh.cc/g/qzoPtk.png" width="120px" alt="캠패스_핑크로고"> -->
+    <!-- <img src="https://ifh.cc/g/pvHpRO.png" width="120px" alt="캠패스_그레이로고"> -->
+    <a href="index.html">
+       <img src="https://ifh.cc/g/Xo5FkN.png" width="120px" alt="캠패스_다크그레이로고">
+   </a>
+</h1>
+<!-- 로고 끝 -->
+
+
+<!-- 메뉴 -->
+<div id="full_menu">
+    <div class="menu_text">
+        <div class="menu_text01">
+            <img src="https://ifh.cc/g/sNB69z.png" alt="홈글씨">
+            <div class="menu01_hover menu_hover">
+                <div class="menu01_text_01">
+                    <img src="https://ifh.cc/g/QxsV5b.png" alt="홈컬러글씨">
+                </div>
+                <div class="menu01_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text02">
+            <img src="https://ifh.cc/g/wyoaxC.png" alt="예약글씨">
+            <div class="menu02_hover menu_hover">
+                <div class="menu02_text_01">
+                    <a href="reservation.html">
+                    <img src="https://ifh.cc/g/56hfAL.png" alt="예약컬러글씨">
+                    </a>
+                </div>
+                <div class="menut02_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text03">
+            <img src="https://ifh.cc/g/Q3DmaT.png" alt="용품글씨">
+            <div class="menu03_hover menu_hover">
+                <div class="menu03_text_01">
+                    <img src="https://ifh.cc/g/fFXMxv.png" alt="용품컬러글씨">
+                </div>
+                <div class="menut03_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text04">
+            <img src="https://ifh.cc/g/Pjbnqb.png" alt="Q&A글씨">
+            <div class="menu04_hover menu_hover">
+                <div class="menu04_text_01">
+                    <img src="https://ifh.cc/g/lMwCPM.png" alt="Q&A컬러글씨">
+                </div>
+                <div class="menut04_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text05">
+            <img src="https://ifh.cc/g/zMJFZD.png" alt="장바구니글씨">
+            <div class="menu05_hover menu_hover">
+                <div class="menu04_text_01">
+                    <img src="https://ifh.cc/g/2aWS9V.png" alt="장바구니컬러글씨">
+                </div>
+                <div class="menut05_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text06">
+            <img src="https://ifh.cc/g/DMYA0T.png" alt="마이페이지글씨">
+            <div class="menu06_hover menu_hover">
+                <div class="menu06_text_01">
+                    <img src="https://ifh.cc/g/tpA4wr.png" alt="마이페이지컬러글씨">
+                </div>
+                <div class="menut06_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 메뉴끝 -->
+
+<!-- 햄버거 -->
+<div class="hambuger">
+    <div class="box">
+        <div class="hambuger02">
+            <img src="https://ifh.cc/g/mhGrg6.png" alt="햄버거02">
+        </div>
+        <div class="hambuger03">
+            <img src="https://ifh.cc/g/mhGrg6.png" alt="햄버거03">
+        </div>
+        <div class="hambuger04">
+            <img src="https://ifh.cc/g/mhGrg6.png" alt="햄버거03">
+        </div>
+    </div>
+</div>
+<!-- 햄버거끝 -->
+
+<!-- <nav id="nav" th:replace="/fragments/nav"></nav> -->
+
+
+
+
+
+<script src="js/plugin/gsap.js"></script>
+<script src="js/plugin/scrollTrigger.js"></script>
+<script src="js/scrollbar.js"></script>
+<script src="js/setting.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+   window.addEventListener('DOMContentLoaded', function () {
+
+
+
+       setTimeout(()=>{
+           $('#intro').addClass('on');
+       },2000)
+
+       setTimeout(()=>{
+           $('#section01').addClass('on');
+       },3000)
+
+
+       $('.hambuger').click(function () {
+           $('#full_menu').toggleClass('on');
+           $('.hambuger .box').toggleClass('on');
+       })
+
+
+       // $('.hambuger .box').click(function () {
+       //     $('#full_menu').removeClass('on');
+       // })
+
+
+       $('#full_menu .menu_text > div').mouseenter(function () {
+           let idx = $(this).index();
+           $("#full_menu .menu_img > div").removeClass('on');
+           $("#full_menu .menu_img > div").eq(idx).addClass('on');
+
+       })
+
+
+   })
+   </script>
+</body>
+</html>

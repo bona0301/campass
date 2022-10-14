@@ -17,9 +17,11 @@ public class ProductController {
 	private ProductService service;
 	
 	@GetMapping(value = "/product", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<ProductDto.ForProductList>> list(Integer pCode) {
-		return ResponseEntity.ok(service.list(pCode));
+	public ResponseEntity<List<ProductDto.ForProductList>> list() {
+		return ResponseEntity.ok(service.list());
 	}
+	
+
 }
 
 

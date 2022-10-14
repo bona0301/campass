@@ -12,9 +12,9 @@ public class ViewController {
 	@Autowired
 	private ProductService service;
 	
-	@GetMapping({"/","/product/product"})
+	@GetMapping("/product/list")
 	public ModelAndView list() {
-		return new ModelAndView("/product");
+		return new ModelAndView("/product/product");
 	}
 
 	@GetMapping({"/", "/product/pcart"})

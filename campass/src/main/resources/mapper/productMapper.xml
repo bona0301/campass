@@ -4,12 +4,13 @@
   <!-- 용품 리스트 -->
   <select id="productList" resultType="com.campass.demo.dto.ProductDto$ForProductList">
   	select 
-  		pCode,
-  		pName,
-  		pMainImg,
-  		pPrice,
-  		pCateCode 
-  	from product
+  		p.pCode,
+  		p.pName,
+  		p.pMainImg,
+  		p.pPrice,
+  		p.pCateCode 
+  	from product p
+  	left outer join pdtCate c on p.pCateCode=c.pCateCode
   	order by pName
   </select>
   
