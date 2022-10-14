@@ -13,6 +13,86 @@
 	<script src="/js/product/scrollbar.js"></script>
 	<script src="/js/product/setting.js"></script>
 	<script src="/js/product/main.js"></script>  
+	
+		<style>
+		.pagination {
+			display: flex;
+			justify-content: center;
+		}
+
+		.pagination li {
+			display: none;
+		}
+	</style>
+<script>
+	// 페이징
+	function getPageno(){
+		const params = new URLSearchParams(location.search);
+		const pageno = params.get("pageno");
+		if(pageno==null)
+			return 1;
+		if(isNaN(pageno))
+			return 1;
+		if(pageno<1)
+			return 1;
+		return pageno;
+	}
+	
+	// 글출력 - <template> 사용
+	function printProductList(productList){
+		const $list = $('#list');
+		const $t = $('#tr_template').html();
+		for(const p of productList) {
+			$list.append($t.replace('{pCode1}',p.pCode).replace('{pCode2}',p.pCode).replace('{pmainImg}',p.pmainImg).replace('{pName}',p.pName)
+					.replace('{pPrice}'));
+		}
+	}
+	
+	// 페이징 계산
+	function getPagination({pageno, pagesize, totalcount, blocksize=4}){
+		const countOfPage = Math.ceil(totalcount/pagesize);
+		const prev = Math.floor((pageno-1)/blocksize)*blocksize;
+		let end = prev + blocksize;
+		const start = prev + 1;
+		/* let end = prev +  */
+		let next = end + 1;
+		if(end>=countOfPage){
+			end = countOfPage;
+			next = 0;
+		}
+		return {pageno, prev, start, end, next};
+	}
+	
+	// pagination 출력
+	function printPagination({pageno, prev, start, end, next}){
+		if (prev > 0)
+			$('#prev').css('display', 'block').children('a').attr("href", "/product?pageno=" + prev);
+		if (next > 0)
+			$('#next').css('display', 'block').children('a').attr("href", "/product?pageno=" + next);
+
+		
+		const pagination_li = $('.pagination li');
+		for(let i = start; i<=end; i++){
+			const $li = $(pagination_li[i]);
+			$li.css('display','block').children('a').attr("href", "/product?pageno"+i).text(i);
+			if(i===pageno)
+				$li.addClass('active');
+		}
+	}
+	
+	 $(document).ready(async function () {
+		const apiUrl = 'http://localhost:8087/product';
+		const pageno = getPageno();
+		const params = {pageno};
+		$.ajax({url: apiUrl, data: params}).done((response)=>{
+			printBoardList(response.result.printBoardList);
+			const pagination = getPagination(response.result);
+			printPagination(pagination);
+		}).fail((error)=>{
+			console.log(error);
+		});			
+	}) 
+</script>
 </head>
 <body>
 <!-- 로고 -->
@@ -132,28 +212,40 @@
             <p class="text05">식기</p>
             <p class="text06">기타</p>
         </div>
+	</section>
 </section>
-<script>
-	// 페이징
-	function getPageno(){
-		const params = new URLSearchParams(location.search);
-		const pageno = params.get("pageno");
-		if(pageno==null)
-			return 1;
-		if(isNaN(pageno))
-			return 1;
-		if(pageno<1)
-			return 1;
-		return pageno;
-	}
-	
-	// 글출력
-	function productList(ProductList){
-		const $list = $('#list');
+<div>
+	<section id="section">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>상품명</th>
+							<th>가격</th>
+						</tr>
+					</thead>
+					<tbody id="list">
+					</tbody>
+				</table>
+				<ul class="pagination">
+					<li class='page-item' id="prev"><a class='page-link'>이전으로</a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item' id="next"><a class='page-link'>다음으로</a></li>
+				</ul>
+			</section>
+</div>
+<template id="tr_template">
+		<tr>
+			<td>{pCode1}</td>
+			<td>{pmainImg}</td>
+			<td><a href="/product?pCode={pCode2}">{pName}</a></td>
+			<td>{pName}</td>
 
-	}
-</script>
-</section>
+		</tr>
+	</template>
 <footer id="footer">
         <img src="https://ifh.cc/g/NMjHLc.png" alt="푸터박스">
 </footer>
