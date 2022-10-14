@@ -10,22 +10,22 @@ import com.campass.demo.entity.PdtCart;
 
 @Mapper
 public interface PdtCartDao {
-	// 아이디 체크 
-	public String idCheck(String bId);
+	// 장바구니 추가 
+	public Integer pAddCart(PdtCart pdtCart);	
 	
-	// 장바구니 확인
+	// 장바구니 비우기
+	public int cartAllDelete(Integer pdtCartNo);
+
+	// 수량 변경 
+	public int pCartAmoUpdate(Integer pCode) ;
+	
+	// 장바구니 목록
 	//public CartDto checkCart(CartDto cart);
 
-	// 장바구니 추가 
-	public int pAddCart(PdtCart pdcCart);	
 	
 	// 장바구니 리스트 
-	public List<PdtCartDto.Read> listCart(String bId);
+	public List<PdtCartDto.Read> listCart(String bId) ;
 	
-	// 수량 변경 
-	public int pCartAmoUpdate(Integer pCode);
 
-	// 장바구니 비우기 (장바구니코드?)
-	public int cartAllDelete(String bId);
 
 }

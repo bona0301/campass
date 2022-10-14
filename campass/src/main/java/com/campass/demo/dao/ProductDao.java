@@ -2,11 +2,13 @@ package com.campass.demo.dao;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import com.campass.demo.dto.ProductDto;
+import com.campass.demo.entity.AttachImage;
+import com.campass.demo.entity.Product;
+
 
 @Mapper
 public interface ProductDao {
@@ -14,11 +16,24 @@ public interface ProductDao {
 	public List<ProductDto.ForProductList> productList(Integer pCode);
 	
 	// 개수
-	public Integer countProduct(Integer pCode);
+	public Integer count(Integer pCode);
+	
+	// 카테고리 리스트 
+	public List<Product> cateList();	
+	
+	// 국내 카테고리 리스트 
+	public List<Product> getCateCode1();
+	
+	// 외국 카테고리 리스트
+	public List<Product> getCateCode2();
 	 
 	// 페이징
-	public List<ProductDto.ForProductList> findAll(Map map);                                          
-	
+	//public List<ForList> findAll(Map<String, Object> map);
+	 
 	// 상세페이지 
-	public Optional<ProductDto.PdtDetail> productDetail(Integer pCode);
+	public ProductDto detailProduct(int product_id);
+	// public Optional<ProductDto.Detail> findById(Integer bno);
+	
+	// 이미지 데이터 반환 
+	public List<AttachImage> getAttachList(int bookId);
 }

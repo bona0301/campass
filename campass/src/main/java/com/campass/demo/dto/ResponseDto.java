@@ -1,4 +1,4 @@
-package com.campass.demo.dto;
+package  com.campass.demo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
