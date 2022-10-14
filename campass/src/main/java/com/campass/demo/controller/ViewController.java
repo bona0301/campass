@@ -18,7 +18,7 @@ public class ViewController {
 	}
 
 	@GetMapping({"/", "/product/pcart"})
-	public ModelAndView listCart(HttpSession session) {
+	public ModelAndView listCart() {
 		return new ModelAndView("/product/pcart");
 	}
 }
