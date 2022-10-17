@@ -1,17 +1,17 @@
 package com.campass.demo.entity;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
-@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class PdtCart {
 	private Integer pdtCartNo;
+	private Integer pdtCartPrice;
 	private Integer pdtCartAmo;
-	
-	private String bId;
-	private Integer pCode;
+
 }
-	

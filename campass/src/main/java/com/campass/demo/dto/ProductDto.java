@@ -1,11 +1,13 @@
 package com.campass.demo.dto;
 
 import java.util.Collection;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @NoArgsConstructor(access=AccessLevel.PRIVATE)
 public class ProductDto {
 	// 목록
@@ -42,7 +44,6 @@ public class ProductDto {
 	public static class PdtDetail {
 		private Integer pCode;
 		private String pName;
-		private String pMainImg;
 		private String pContentImg;
 		private String pBrand;
 		private Integer pStarAvg;

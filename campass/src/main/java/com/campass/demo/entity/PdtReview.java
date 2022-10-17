@@ -1,6 +1,7 @@
 package com.campass.demo.entity;
 
 import java.time.LocalDate;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -18,9 +19,9 @@ public class PdtReview {
 	private LocalDate pReviewDate;
 	private Integer pCode;
 	
-	public PdtReview addWriter(String loginId, Integer pOdtNo) {
+	public PdtReview addWriter(String loginId) {
 		this.bId = loginId;
-		this.pOdtNo = pOdtNo;
 		return this;
 	}
+	
 }

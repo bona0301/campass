@@ -2,17 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.campass.demo.dao.PdtReviewDao">
   <!-- 리뷰 목록페이지 물어보기 -->
-
   <select id="reviewList" parameterType="int" resultType="com.campass.demo.dto.PdtReviewDto$ReadReviewList">
-  	select pStar, pReviewContent, bId, pReviewDate from pdtReview
+  	select pReviewNo, pStar, pReviewContent, bId, pReviewDate from pdtReview
   </select>
   
   <!-- 등록 -->
-  <insert id="saveReview">
+  <insert id="saveReview" parameterType="com.campass.demo.dto.PdtReviewDto">
   	<selectKey keyProperty="pReviewNo" resultType="int" order="BEFORE">
   		select nvl(max(pReviewNo),0)+1 from pdtReview
   	</selectKey>
-  	insert into pdtReview(pReviewNo, pOrderNo, pOdtNo, pStar, pReviewContent, bId, pCode)
+  	insert into pReview(pReviewNo, pOrderNo, pOdtNo, pStar, pReviewContent, bId, pCode)
   	values (#{pReviewNo},#{pOrderNo},#{pOdtNo},#{pStar},#{pReviewContent},#{bId},#{pCode})
   </insert>
   
@@ -25,4 +24,6 @@
   <delete id="deletePdtReview">
   	delete from pdtReview where pReviewNo=#{pReviewNo}
   </delete>
- </mapper>
+  
+
+</mapper>

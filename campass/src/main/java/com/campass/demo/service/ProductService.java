@@ -29,6 +29,14 @@ public class ProductService {
 	// 용품 페이징
 	public ProductDto.ProductPaging list(Integer pageno, Integer pCode) {
 		Integer totalcount = dao.countProduct(pCode);
+		Integer countOfPage = (totalcount-1)/pagesize + 1;
+		if(pageno>countOfPage)
+			pageno=countOfPage;
+		else if(pageno<0)
+			pageno=-pageno;
+		else if(pageno==0)
+			pageno=1;
+		
 		Integer start = (pageno-1) * pagesize + 1;
 		Integer end = start * pagesize - 1;
 		
