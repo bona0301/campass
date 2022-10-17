@@ -1,10 +1,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>product</title>
+
+<link href="https://ifh.cc/g/NdOrVp.png" rel="icon">
+<link rel="stylesheet" href="/css/product/newMain.css">
+<script>
+	$(document).ready(async function(){
+		
+		const a = await $.ajax({
+			url:'/product'
+		})
+		console.log(a);
+		
+		for(const list of a){
+			const b = $("<ul>").appendTo("#list")
+			
+			$("<li>").text("상품명 : "+list.pname).appendTo(b);
+			$("<li>").text("가격 : " + list.pprice).appendTo(b);
+		}
+		
+		/* 페이징 */
+		const apiUrl = 'http://localhost:8087/product/list';
+		const pageno = getPageno();
+		const params = {pageno};
+		$.ajax({url: apiUrl, data: params}).done((response)=>{
+			printProductList(response.result.productList);
+			const pagination = getPagination(response.result);
+			printPagination(pagination);
+		}).fail((error)=>{
+			console.log(error);
+		});		
+	})
+	
+	
+	/* 페이징 */
+	function getPageno() {
+			const params = new URLSearchParams(location.search);
+			const pageno = params.get("pageno");
+			if(pageno==null)
+				return 1;
+			if(isNaN(pageno))
+				return 1;
+			if(pageno<1)
+				return 1;
+			return pageno;
+		}
+	
+	
+	// prev, start, end, next 계산
+		function getPagination({pageno, pagesize, totalcount, blocksize = 4}) {
+			const countOfPage = Math.ceil(totalcount / pagesize);
+			const prev = Math.floor((pageno - 1) / blocksize) * blocksize;
+			const start = prev + 1;
+			let end = prev + blocksize;
+			let next = end + 1;
+			if (end >= countOfPage) {
+				end = countOfPage;
+				next = 0;
+			}
+			return {pageno, prev, start, end, next};
+		}
+
+		// pagination 출력
+		function printPagination({pageno, prev, start, end, next}) {
+			if (prev > 0)
+				$('#prev').css('display', 'block').children('a').attr("href", "/product/list?pageno=" + prev);
+			if (next > 0)
+				$('#next').css('display', 'block').children('a').attr("href", "/product/list?pageno=" + next);
+
+			const pagination_li = $('.pagination li');
+			for (let i = start; i <= end; i++) {
+				const $li = $(pagination_li[i]);
+				$li.css('display', 'block').children('a').attr("href", "/product/list?pageno=" + i).text(i);
+				if (i === pageno)
+					$li.addClass('active');
+			}
+		}
+
+</script>
 </head>
 <body>
+ <!-- 고정 -->
+    <nav id="navBox">
+        <img id="cate-img" src="https://ifh.cc/g/zRKsd8.jpg" alt="용품메인이미지">
+            <ul class="category">
+                <li>ALL</li>
+                <li>텐트</li>
+                <li>침낭/매트</li>
+                <li>테이블/의자</li>
+                <li>식기</li>
+                <li>기타</li>
+            </ul>
+    </nav>
 
+<!-- section02 : 용품 리스트  -->
+	<div id="list">
+	
+	</div>
+	<ul>
+		<li><a href="/product/list/detail/{pCode}">{pMainImg}</a></li>
+		<li>{pName}</li>
+		<li>{pPrice}</li>
+	</ul>
+	
+     <ul class="pagination">
+					<li class='page-item' id="prev"><a class='page-link'>이전으로</a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item'><a class='page-link'></a></li>
+					<li class='page-item' id="next"><a class='page-link'>다음으로</a></li>
+				</ul>
+				
+<!-- 고정 -->
+    <footer id="footer">
+        <img class="footer" src="https://ifh.cc/g/NMjHLc.png" alt="푸터박스">
+    </footer>
 </body>
 </html>
