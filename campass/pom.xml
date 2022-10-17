@@ -39,11 +39,6 @@
 			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
 			<version>1.16</version>
 		</dependency>
-		<!-- spring starter 시큐리티 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
 		<!-- spring starter 타임리프 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
