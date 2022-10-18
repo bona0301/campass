@@ -23,7 +23,7 @@
 	select * from  	
   	(
   		select rownum as rnum, p.* from 
-  			(select /*+ index_desc(board board_pk_bno) */ pCode, pName, pPrice, pCateCode from product  
+  			(select /*+ index_desc(product product_pk_pCode) */ pCode, pName, pPrice, pCateCode from product  
   			 order by pCode) p
   		where rownum &lt;=#{end}
   	)

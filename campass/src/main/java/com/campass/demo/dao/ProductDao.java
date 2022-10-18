@@ -11,7 +11,7 @@ import com.campass.demo.dto.ProductDto;
 @Mapper
 public interface ProductDao {
 	// 목록페이지
-	public List<ProductDto> productList();
+	public List<ProductDto.ForProductList> productList();
 	
 	// 개수
 	public Integer countProduct(Integer pCode);

@@ -27,9 +27,10 @@ public class ProductService {
 	}
 	
 	// 용품 페이징
-	public ProductDto.ProductPaging list(Integer pageno, Integer pCode) {
+	public ProductDto.ProductPaging findAll(Integer pageno, Integer pCode) {
 		Integer totalcount = dao.countProduct(pCode);
 		Integer countOfPage = (totalcount-1)/pagesize + 1;
+		
 		if(pageno>countOfPage)
 			pageno=countOfPage;
 		else if(pageno<0)
@@ -38,7 +39,7 @@ public class ProductService {
 			pageno=1;
 		
 		Integer start = (pageno-1) * pagesize + 1;
-		Integer end = start * pagesize - 1;
+		Integer end = pageno * pagesize;
 		
 		Map<String,Object> map = new HashMap<>();
 		map.put("start", start);

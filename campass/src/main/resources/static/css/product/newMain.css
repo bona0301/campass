@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 /* nav */
 #cate-img{
 	width:100%;
@@ -27,8 +26,30 @@
     font-weight: bold;
     color: #FF375B;
     }
+    
+/* 목록 */
+#list {
+	text-align:center;
+	
+}
 
-    /* footer */
+#list td{
+	
+	list-style-type: none;
+}    
+    
+    
+/* pagination */
+.pagination {
+	display: flex;
+	justify-content: center;
+	}
+
+.pagination li {
+	display: none;
+	}
+
+/* footer */
 #footer .footer {
     width:100%;
     }

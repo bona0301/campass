@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(function() {
+	const $formDiv = $("#form_div");
+	for(let i=0; i<10; i++) {
+		$("<input>").attr("type","text").appendTo($formDiv);
+		$("<input>").attr("type","file").appendTo($formDiv);
+		$("<hr>").appendTo($formDiv);
+	}
+	
+	$("#send").click(function() {
+		const formData = new FormData();
+		let index = 0;
+		$.each($("input[type=file]"), function(idx, element) {
+			const $element = $(element);
+			console.log($element[0].files[0]);
+			if($element[0].files[0]!==undefined) {
+				formData.append("list[" + index + "].pMainImg", $element[0].files[0]);
+				formData.append("list[" + index + "].pName", $element.prev().val())
+			}
+			index++;
+		});
+		
+		$.ajax({
+			url: "/upload",
+			method: "post",
+			data: formData,
+			processData: false,
+			contentType: false
+		})
+	})
+})
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<div id="form_div">
+		</div>
+		<button type="button" id="send">보내기</button>
+	</form>
+</body>
+</html>

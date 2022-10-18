@@ -1,6 +1,9 @@
 package com.campass.demo.dto;
 
 import java.util.Collection;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -51,5 +54,16 @@ public class ProductDto {
 		private String pCateCode;
 	}
 	
+	@Data
+	public static class ProductInput {
+		private String pName;
+		private MultipartFile pMainImg;
+	}
+	
+	@Data
+	public static class InputList {
+		private List<ProductInput> list;
+		
+	}
 	// 리뷰는 pdtReviewDto
 }
