@@ -11,7 +11,7 @@ import com.campass.demo.entity.PdtReview;
 @Mapper
 public interface PdtReviewDao {
 	// 한줄평 목록
-	public List<PdtReviewDto.ReadReviewList> reviewList(String bId);
+	public List<PdtReviewDto.ReadReviewList> reviewList(String username);
 			
 	// 댓글 등록
 	public Integer saveReview(PdtReview pdtReview);

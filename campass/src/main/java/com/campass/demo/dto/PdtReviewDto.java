@@ -23,7 +23,7 @@ public class PdtReviewDto {
 		//private Integer pReviewNo;
 		private Integer pStar;
 		private String pReviewContent;
-		private String bId;
+		private String username;
 		@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
 		private LocalDate pReviewDate;
 	}

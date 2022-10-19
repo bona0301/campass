@@ -15,6 +15,9 @@ public interface ProductDao {
 	
 	// 개수
 	public Integer countProduct(Integer pCode);
+	
+	// 이미지
+	public List<ProductDto.ProductInput> imgList();
 	 
 	// 페이징
 	public List<ProductDto.ForProductList> findAll(Map map);                                          

@@ -22,7 +22,7 @@ public class PdtReviewDaoTest {
 	
 	//@Test
 	public void SaveTest() {
-		PdtReview pdtReview = PdtReview.builder().pStar(1).pReviewContent("JMTGR").bId("spring").pCode(1).build();
+		PdtReview pdtReview = PdtReview.builder().pStar(1).pReviewContent("JMTGR").username("spring").pCode(1).build();
 	
 		assertEquals(1, dao.saveReview(pdtReview));
 	}

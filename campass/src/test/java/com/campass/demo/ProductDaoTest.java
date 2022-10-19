@@ -23,9 +23,9 @@ public class ProductDaoTest {
 	}
 	
 	//@Test
-			public void productList() {
-				assertNotNull(dao.productList());
-			}
+	public void productList() {
+		assertNotNull(dao.productList());
+	}
 	
 	//@Test
 		public void countTest() {

@@ -15,12 +15,12 @@ public class PdtReview {
 	private Integer pOdtNo;
 	private Integer pStar;
 	private String pReviewContent;
-	private String bId;
+	private String username;
 	private LocalDate pReviewDate;
 	private Integer pCode;
 	
 	public PdtReview addWriter(String loginId) {
-		this.bId = loginId;
+		this.username = loginId;
 		return this;
 	}
 	

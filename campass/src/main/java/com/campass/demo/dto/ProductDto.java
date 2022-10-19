@@ -47,7 +47,8 @@ public class ProductDto {
 	public static class PdtDetail {
 		private Integer pCode;
 		private String pName;
-		private String pContentImg;
+		private MultipartFile pMainImg;
+		private MultipartFile pContentImg;
 		private String pBrand;
 		private Integer pStarAvg;
 		private Integer pPrice;

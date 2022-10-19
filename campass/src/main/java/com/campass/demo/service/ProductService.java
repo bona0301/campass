@@ -12,18 +12,20 @@ import com.campass.demo.dao.ProductDao;
 import com.campass.demo.dto.ProductDto;
 import com.campass.demo.dto.ProductDto.ProductPaging;
 
-
 @Service
 public class ProductService {
 	@Autowired
 	private ProductDao dao;
 	@Value("${campass.pagesize}")
 	private Integer pagesize;
+	@Value("c:/productImg")
+	private String productFolder;
+	@Value("http://localhost:8087/productImg/")
+	private String productPath;
 	
 	// 용품 리스트 출력
 	public List<ProductDto.ForProductList> list(){
-		return dao.productList();
-		
+		return dao.productList();	
 	}
 	
 	// 용품 페이징

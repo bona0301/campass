@@ -11,7 +11,7 @@ public class ViewController {
 	@Autowired
 	private ProductService service;
 
-	@GetMapping("/product/list")
+	@GetMapping("/product")
 	public ModelAndView list() {
 		return new ModelAndView("/product/product");
 	}
@@ -19,5 +19,10 @@ public class ViewController {
 	@GetMapping({"/", "/product/pcart"})
 	public ModelAndView listCart() {
 		return new ModelAndView("/product/pcart");
+	}
+	
+	@GetMapping("/product/read")
+	public void read() {
+
 	}
 }
