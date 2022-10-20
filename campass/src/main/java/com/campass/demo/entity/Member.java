@@ -1,5 +1,10 @@
 package com.campass.demo.entity;
 
-public class Member {
+import lombok.Getter;
+import lombok.ToString;
 
+@Getter
+@ToString
+public class Member {
+  private String bId;
 }

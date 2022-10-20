@@ -18,10 +18,10 @@ public class PdtReview {
 	private String username;
 	private LocalDate pReviewDate;
 	private Integer pCode;
-	
+
 	public PdtReview addWriter(String loginId) {
 		this.username = loginId;
 		return this;
 	}
-	
+
 }

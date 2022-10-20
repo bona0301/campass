@@ -3,7 +3,6 @@ package com.campass.demo.dto;
 import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AccessLevel;
@@ -27,7 +26,6 @@ public class PdtReviewDto {
 		@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
 		private LocalDate pReviewDate;
 	}
-	
 	
 	@Data
 	public static class DeleteReview {

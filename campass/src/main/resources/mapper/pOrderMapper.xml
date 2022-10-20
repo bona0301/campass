@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campass.demo.dao.POrderDao">
+
+	<!-- 주문처리 -->
+	<insert id="orderSave">
+		<selectKey keyProperty="pOrderNo" resultType="int" order="BEFORE">
+			select nvl(max(pdtCartNo), 0)+1 from PdtOrder
+			<!-- select board_seq.nextval from dual -->
+		</selectKey>
+		insert into PdtOrder(pOrderNo, bId, shipName, shipAddr, pdtCartNo)
+		 values(#{pOrderNo}, #{bId}, #{shipName}, #{shipAddr}, #{pdtCartNo})
+	</insert>
+	
+
+	
+</mapper>

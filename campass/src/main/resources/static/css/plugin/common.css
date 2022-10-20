@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+    /*overflow: hidden;*/
+    background: black;
+}
+
+
+.scroll-content > section{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.scroll-content > section:nth-child(even){
+    background: red;
+}
+
+
