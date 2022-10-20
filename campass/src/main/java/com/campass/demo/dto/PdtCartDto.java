@@ -1,11 +1,12 @@
 package com.campass.demo.dto;
 
+import java.util.List;
+
 import com.campass.demo.entity.PdtCart;
 
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -13,7 +14,6 @@ import lombok.ToString;
 public class PdtCartDto {
 
 	@Data
-	@ToString
 	@Builder
 	public static class pAddCart{
 		private Integer pdtCartAmo;	//장바구니수량
@@ -25,7 +25,6 @@ public class PdtCartDto {
 		}
 	}
 	
-	@Getter
 	@Data
 	@ToString
 	public static class Read{
@@ -36,12 +35,32 @@ public class PdtCartDto {
 		private Integer pdtCartAmo; 
 		private String pName;		//상품이름
 		private Integer pPrice;		//상품가격
-		private Integer totalPrice; //총가격
+		private String pBrand;	//상품 브랜드
 		
-		public void initTotalPrice() {
-		this.totalPrice = this.pPrice*this.pdtCartAmo;
-		}
-			
+		//public void initTotalPrice() {
+		//this.totalPrice = this.pPrice*this.pdtCartAmo;
+		//}
+	}
+	
+	@Builder
+	@Data
+	public static class cartCountUpdate {
+		private Integer pdtCartNo;
+		private Boolean countVal;
+		private Integer pCode;
+		private String bId;
+	}
+	
+	@Data
+	public static class delete{
+		private List<Integer> pdtCartNo;
+	}
+	
+	@Data
+	@Builder
+	public static class result {
+		private List<PdtCartDto.Read> list;
+		private Integer total;
 	}
 
 }

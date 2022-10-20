@@ -1,10 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <title>product</title>
+<link href="https://ifh.cc/g/NdOrVp.png" rel="icon">
+    <link rel="stylesheet" href="/css/plugin/reset.css">
+    <link rel="stylesheet" href="/css/plugin/common.css">
+    <link rel="stylesheet" href="/css/001.css">
+	<script src="/js/plugin/gsap.js"></script>
+	<script src="/js/plugin/scrollTrigger.js"></script>
+	<script src="/js/scrollbar.js"></script>
+	<script src="/js/setting.js"></script>
+	<script src="/js/001.js"></script>  
 </head>
 <body>
+
+
+<!-- 로고 -->
+<h1 class="logo">
+    <img src="https://ifh.cc/g/qzoPtk.png" width="120px" alt="캠패스_핑크로고">
+</h1>
+<!-- 로고 끝 -->
+
+
+<!-- 메뉴 -->
+<div id="full_menu">
+    <div class="menu_text">
+        <div class="menu_text01">
+            <img src="https://ifh.cc/g/sNB69z.png" alt="홈글씨">
+            <div class="menu01_hover menu_hover">
+                <div class="menu01_text_01">
+                    <img src="https://ifh.cc/g/QxsV5b.png" alt="홈컬러글씨">
+                </div>
+                <div class="menu01_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text02">
+            <img src="https://ifh.cc/g/wyoaxC.png" alt="예약글씨">
+            <div class="menu02_hover menu_hover">
+                <div class="menu02_text_01">
+                    <a href="reservation.html">
+                    <img src="https://ifh.cc/g/56hfAL.png" alt="예약컬러글씨">
+                    </a>
+                </div>
+                <div class="menut02_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text03">
+            <img src="https://ifh.cc/g/Q3DmaT.png" alt="용품글씨">
+            <div class="menu03_hover menu_hover">
+                <div class="menu03_text_01">
+                    <img src="https://ifh.cc/g/fFXMxv.png" alt="용품컬러글씨">
+                </div>
+                <div class="menut03_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text04">
+            <img src="https://ifh.cc/g/Pjbnqb.png" alt="Q&A글씨">
+            <div class="menu04_hover menu_hover">
+                <div class="menu04_text_01">
+                    <img src="https://ifh.cc/g/lMwCPM.png" alt="Q&A컬러글씨">
+                </div>
+                <div class="menut04_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text05">
+            <img src="https://ifh.cc/g/zMJFZD.png" alt="장바구니글씨">
+            <div class="menu05_hover menu_hover">
+                <div class="menu04_text_01">
+                    <img src="https://ifh.cc/g/2aWS9V.png" alt="장바구니컬러글씨">
+                </div>
+                <div class="menut05_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+        <div class="menu_text06">
+            <img src="https://ifh.cc/g/DMYA0T.png" alt="마이페이지글씨">
+            <div class="menu06_hover menu_hover">
+                <div class="menu06_text_01">
+                    <img src="https://ifh.cc/g/tpA4wr.png" alt="마이페이지컬러글씨">
+                </div>
+                <div class="menut06_image">
+                    <img src="https://ifh.cc/g/WaCztr.jpg" width="500px" style="opacity: 50%;" alt="메뉴홈이미지">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 메뉴끝 -->
+
+<!-- 햄버거 -->
+<div class="hambuger">
+    <div class="box">
+        <div class="hambuger02">
+            <img src="https://ifh.cc/g/mhGrg6.png" alt="햄버거02">
+        </div>
+        <div class="hambuger03">
+            <img src="https://ifh.cc/g/mhGrg6.png" alt="햄버거03">
+        </div>
+        <div class="hambuger04">
+            <img src="https://ifh.cc/g/mhGrg6.png" alt="햄버거03">
+        </div>
+    </div>
+</div>
+<!-- 햄버거끝 -->
+<!-- 공용 헤더 끝 -->
+
+</div>
+
+
+
+
+<section id="container">
+    <!-- section01 시작 -->
+    <section id="section01">
+        <div class="category">
+            <div class="cate_img">
+                <img src="https://ifh.cc/g/gkdz0G.jpg" alt="용품메인이미지">
+            </div>
+            <div class="line"></div>
+        </div>
+        <div class="categoryText">
+            <p class="text01">ALL</p>
+            <p class="text02">텐트</p>
+            <p class="text03">침낭/매트</p>
+            <p class="text04">테이블/의자</p>
+            <p class="text05">식기</p>
+            <p class="text06">기타</p>
+        </div>
+	</section>
+
+    <footer id="footer">
+        <img src="https://ifh.cc/g/NMjHLc.png" alt="푸터박스">
+    </footer>
+
+</section>
 
 </body>
 </html>

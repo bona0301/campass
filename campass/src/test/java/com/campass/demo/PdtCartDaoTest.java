@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.campass.demo.dao.PdtCartDao;
+import com.campass.demo.dto.PdtCartDto;
 import com.campass.demo.entity.PdtCart;
 
 @SpringBootTest
@@ -20,30 +21,45 @@ public class PdtCartDaoTest {
 	public void diTest() {
 		assertNotNull(cartDao);
 	}
-	
+	 	
 	// 장바구니 추가 
-	//@Test
+	@Test
 	public void pAddCartTest() throws Exception {
-		PdtCart pdtCart = PdtCart.builder().pdtCartAmo(1).bId("spring").pCode(100).build();
+		PdtCart pdtCart = PdtCart.builder().pdtCartAmo(1).bId("spring").pCode(40).build();
 		
 		assertEquals(1, cartDao.pAddCart(pdtCart));
 	}
 	
 	// 장바구니 삭제 
 	//@Test
-	public void cartAllDeleteTest() throws Exception {
+	public void cartDeleteTest() throws Exception {
 		// 없어서 삭제 실패
-		assertEquals(0, cartDao.cartAllDelete(5));
+		assertEquals(0, cartDao.cartDelete(10));
 		// 삭제 성공
-		assertEquals(1, cartDao.cartAllDelete(1));
+		assertEquals(1, cartDao.cartDelete(4));
 	}
+
 	
 	// 장바구니 리스트
-	@Test
+	//@Test
 	public void listTest() throws Exception {
 		System.out.println(cartDao.listCart("spring"));
 		assertEquals("스텔라릿지", cartDao.listCart("spring").get(0).getPName());
 	}
+	
+	// 수량변경
+	//@Test
+	public void cartAmoPlusCountTest() {
+		cartDao.cartAmoPlusCount(1);
+		assertEquals(1, cartDao.listCart("spring").get(0).getPdtCartAmo());
+	}
+	//@Test
+	public void cartAmoMinusCountTest() {
+		cartDao.cartAmoMinusCount(1);
+		assertEquals(1, cartDao.listCart("spring").get(0).getPdtCartAmo());
+	
+	}
+	
 	
 	
 }
