@@ -1,16 +1,19 @@
 package com.campass.demo.dao;
 
-import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.campass.demo.dto.POrderDto;
-import com.campass.demo.dto.pOrderPageDto;
+import com.campass.demo.entity.PdtOrder;
 
 @Mapper
 public interface POrderDao {
 
-	//주문상품 정보
-	public List<POrderDto.Read> getGoodsInfo(Integer pCode);
+	// 주문처리 
+	public Integer orderSave(PdtOrder order);
+
+	// 주문 내역 출력
+	//public List<POrderDto.pOrderRead> pOrderRead(OrderReadDto dto);
 	
+	// 주문 상세 내역 출력
+	//public List<POrderDto.pOrderRead> POrderListAll(Integer pOrderNo, String bId);
 }

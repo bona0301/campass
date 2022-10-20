@@ -12,17 +12,13 @@ import lombok.ToString;
 @ToString
 @Builder
 public class PdtOrder {
-	private Integer pOrderNo;		//주문번호	
-	private String shipName;		//배송지명 
-	private String shipAddr;		//배송주소
-	private LocalDate pOrderDate;	//주문날짜
+	private Integer pOrderNo;		 	//주문번호	
+	private String shipName;			//배송지명 
+	private String shipAddr;			//배송주소
+	private LocalDate pOrderDate;		//주문날짜
 	private OrderStatus pOrderStatus;	//주문상태
-	//배송비???
 
-	private String bId;				//회원코드
-
-	public void addStatus(OrderStatus status) {
-		this.pOrderStatus = status;		
-	}
+	private String bId;					//회원코드
 
 }
+

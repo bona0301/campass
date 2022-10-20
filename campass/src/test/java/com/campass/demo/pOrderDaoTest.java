@@ -2,12 +2,10 @@ package com.campass.demo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.campass.demo.dao.POrderDao;
 import com.campass.demo.entity.PdtOrder;
@@ -24,12 +22,12 @@ public class pOrderDaoTest {
 	}
 	
 	//주문처리 
-	//@Test
-	public void saveOrderTest() {
+	@Test
+	public void orderSaveTest() {
 		
-	PdtOrder porder = PdtOrder.builder().bId("spring").shipName("주문자명").shipAddr("인천시 미추홀구 블라블라").pOrderStatus(OrderStatus.주문완료).build();
-		
-		//assertEquals(1, orderDao.saveOrder(porder)); 
+		PdtOrder pdtOrder = PdtOrder.builder().bId("spring").shipName("주문자명").shipAddr("인천시 미추홀구 블라블라").pOrderStatus(OrderStatus.주문완료).build();
+		assertEquals(1, orderDao.orderSave(pdtOrder));
+	
 	}
 	
 	//주문상태 확인 다시
