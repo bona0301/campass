@@ -20,14 +20,14 @@ public class PdtReviewDaoTest {
 		assertNotNull(dao);
 	}
 	
-	//@Test
+	@Test
 	public void SaveTest() {
 		PdtReview pdtReview = PdtReview.builder().pStar(1).pReviewContent("JMTGR").username("spring").pCode(1).build();
 	
 		assertEquals(1, dao.saveReview(pdtReview));
 	}
 	
-	@Test
+	//@Test
 	public void findById() {
 		assertEquals("spring", dao.findById(1).get());
 	}

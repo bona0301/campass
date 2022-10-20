@@ -1,6 +1,5 @@
 package com.campass.demo.controller;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -62,9 +61,13 @@ public class ProductController {
 		return null;
 	}
 	
-//	@GetMapping(value="/product/detail", produces = MediaType.APPLICATION_JSON_VALUE)
-//	public ResponseEntity<ProductDto.PdtDetail> productDetail(@RequestParam)
-
+	@GetMapping(value="/product/detail", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ProductDto.PdtDetail> productDetail(Integer pCode){
+		return ResponseEntity.ok(service.detail(pCode));
+		
+		
+	}
+	
 }
 
 

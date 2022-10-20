@@ -17,23 +17,23 @@ public class ProductDaoTest {
 	@Autowired
 	ProductDao dao;
 	
-	//@Test
+	@Test
 	public void diTest() {
 		assertNotNull(dao);
 	}
 	
-	//@Test
+	@Test
 	public void productList() {
 		assertNotNull(dao.productList());
 	}
 	
-	//@Test
+	@Test
 		public void countTest() {
 			assertEquals(50, dao.countProduct(null));
 		}
 	
 
-	//@Test
+	@Test
 	public void findAllTest() {
 		// 페이징
 		Map<String, Object> map = new HashMap<String, Object>();

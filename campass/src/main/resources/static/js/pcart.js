@@ -136,6 +136,7 @@ $(document).ready(async function() {
 		}).done((response) => { $(".cart_info").remove(); printCartList(response.result); setTotalInfo(); alert(response.message);})
 		  .fail((response) => { alert(response.message); })
 	})
+	
 // 체크박스 선택삭제
 	$("#delete").click(function() {
 		// 선택한 메뉴 번호들을 담을 배열
@@ -153,7 +154,7 @@ $(document).ready(async function() {
 		// list란 이름으로 서버로 보낸다. 서버에서도 list란 이름의 DTO로 받는다
 		const params = {
 			pdtCartNo : arr, 
-			bId : "spring"
+			username : "spring"
 		}
 		$.ajax({
 			url: "/pcart/delete",

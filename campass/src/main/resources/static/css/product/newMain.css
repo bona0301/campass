@@ -46,6 +46,15 @@
 	width:200px;
 	height:200px;
 }
+
+#detail{
+	list-style-type: none;
+}
+
+.pmainImgClass2{
+	width:400px;
+	height:400px;
+}
     
 /* pagination */
 .pagination {

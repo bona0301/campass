@@ -4,7 +4,7 @@
   <!-- 리뷰 목록페이지 물어보기 -->
   
   <select id="reviewList" parameterType="int" resultType="com.campass.demo.dto.PdtReviewDto$ReadReviewList">
-  	select pStar, pReviewContent, bId, pReviewDate from pdtReview
+  	select pStar, pReviewContent, username, pReviewDate from pdtReview
   </select>
   
   <!-- 등록 -->
@@ -12,13 +12,13 @@
   	<selectKey keyProperty="pReviewNo" resultType="int" order="BEFORE">
   		select nvl(max(pReviewNo),0)+1 from pdtReview
   	</selectKey>
-  	insert into pdtReview(pReviewNo, pOrderNo, pOdtNo, pStar, pReviewContent, bId, pCode)
-  	values (#{pReviewNo},#{pOrderNo},#{pOdtNo},#{pStar},#{pReviewContent},#{bId},#{pCode})
+  	insert into pdtReview(pReviewNo, pOrderNo, pOdtNo, pStar, pReviewContent, username, pCode)
+  	values (#{pReviewNo},#{pOrderNo},#{pOdtNo},#{pStar},#{pReviewContent},#{username},#{pCode})
   </insert>
   
   <!-- 글쓴이 확인 -->
   <select id="findById" resultType="String">
-  	select bId from pdtReview where pReviewNo=#{pReviewNo}
+  	select username from pdtReview where pReviewNo=#{pReviewNo}
   </select>
   
   <!-- 삭제 -->

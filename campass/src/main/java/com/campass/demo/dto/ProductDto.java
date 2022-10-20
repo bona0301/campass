@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.campass.demo.entity.Product;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,12 +49,11 @@ public class ProductDto {
 	public static class PdtDetail {
 		private Integer pCode;
 		private String pName;
-		private MultipartFile pMainImg;
-		private MultipartFile pContentImg;
+		private String pMainImg;
+		private String pContentImg;
 		private String pBrand;
 		private Integer pStarAvg;
 		private Integer pPrice;
-		private String pCateCode;
 	}
 	
 	@Data

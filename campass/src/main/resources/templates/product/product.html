@@ -21,7 +21,7 @@
 		});
 		console.log(response.productList)
 		for(const list of response.productList){
-			const b = $("<tr>").attr("value",list.pcode).attr("class","sangpum").appendTo("#list")
+			const b = $("<tr>").attr("value",list.pcode).attr("class","product").appendTo("#list")
 						
 			const i = $("<td>").appendTo(b);
 			$("<img>").attr("src", list.pmainImg).attr("class","pmainImgClass").appendTo(i);
@@ -29,7 +29,7 @@
 			$("<td>").text("가격 : "+list.pprice+"원").appendTo(b);
 		} 
 		
-		$(document).on("click", ".sangpum", function(){
+		$(document).on("click", ".product", function(){
 			location.href ="/product/product_detail?pcode=" + $(this).attr("value")
 		})
 		

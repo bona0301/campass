@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<title>Insert title here</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+	$(document).ready(async function(){
+
+		$("#login").click(async function(){
+			
+		
+	//$("<div>").text(param.email).appendTo("#aa");
+			
+			const $form = $("<form>").attr("method","post").attr("action","/buyer/login").appendTo($("body"));
+			$("<input>").attr("type","hidden").attr("name","username").val($id).appendTo($form);
+			$("<input>").attr("type","hidden").attr("name","bpassword").val($bpassword).appendTo($form);
+			$form.submit();
+		})
+
+//		$("#login").click(async function(){
+//			alert('로그인완료');
+//			window.location.href = "/member/home";
+//	})
+	})
+</script>
+</head>
+<body>
+	
+	<form action="/buyer/login" method = "post"> 
+	
+		<div>로그인</div>
+		<div>
+			아이디 : <input id="username" type="text" name="username" class="form-control">
+		</div>
+		<div>
+			비밀번호 : <input id="bpassword" type="password" name="password" class="form-control">
+		</div>
+		
+		<button id="login">로그인</button>
+	
+	</form>
+	
+</body>
+</html>
