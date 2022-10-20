@@ -1,6 +1,7 @@
 package com.campass.demo.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -9,9 +10,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class PdtCart {
 	private Integer pdtCartNo;
-	private Integer pdtCartPrice;
 	private Integer pdtCartAmo;
+	private String username;
+	private Integer pCode;
 
 }

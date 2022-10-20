@@ -10,3 +10,5 @@ public class ResponseDto {
 	public String message;
 	public Object result;
 }
+
+

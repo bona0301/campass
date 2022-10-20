@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import com.campass.demo.entity.PdtReview;
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ public class PdtReviewDto {
 		//private Integer pReviewNo;
 		private Integer pStar;
 		private String pReviewContent;
-		private String bId;
+		private String username;
 		@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
 		private LocalDate pReviewDate;
 	}

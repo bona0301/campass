@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+.subject_table, .cart_table, td{
+	
+	border : 1px solid black;
+}

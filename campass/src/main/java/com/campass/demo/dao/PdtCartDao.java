@@ -10,22 +10,34 @@ import com.campass.demo.entity.PdtCart;
 
 @Mapper
 public interface PdtCartDao {
-	// 아이디 체크 
-	public String idCheck(String bId);
-	
-	// 장바구니 확인
-	//public CartDto checkCart(CartDto cart);
-
 	// 장바구니 추가 
-	public int pAddCart(PdtCart pdcCart);	
+	public Integer pAddCart(PdtCart pdtCart);
+	
+	// 기존 장바구니에 추가 
+	public Integer cartPlus(Integer pCode, Integer pdtCartAmo, String username);
+	
+	// 장바구니 삭제
+	public int cartDelete(Integer pdtCartNo);
+	
+	// 장바구니 조회(삭제시 필요)
+	public Optional<Integer> findByCartNo(Integer pCode);
+	
+	// 장바구니 목록
+	//public CartDto checkCart(CartDto cart);
 	
 	// 장바구니 리스트 
-	public List<PdtCartDto.Read> listCart(String bId);
+	public List<PdtCartDto.Read> listCart(String username);
 	
-	// 수량 변경 
-	public int pCartAmoUpdate(Integer pCode);
-
-	// 장바구니 비우기 (장바구니코드?)
-	public int cartAllDelete(String bId);
+	// 수량 플러스
+	public Integer cartAmoPlusCount(Integer pCode);
+	
+	// 수량 마이너스
+	public Integer cartAmoMinusCount(Integer pdtCartNo);
+	
+	// 장바구니 수량 가져오기(수량변경시 필요)
+	public Optional<Integer> getCount(Integer pdtCartNo);
+	
+	// 동일상품 확인 
+	public boolean checkCart(Integer pCode, String username); 
 
 }
