@@ -85,6 +85,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- spring starter 시큐리티 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 		<!-- spring starter 테스트 for 스프링 시큐리티 -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
