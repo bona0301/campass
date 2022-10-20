@@ -33,6 +33,11 @@
 	
 }
 
+#list tr{
+	vertical-align:middle;
+	
+}    
+
 #list td{
 	list-style-type: none;
 }    

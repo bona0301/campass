@@ -30,7 +30,7 @@
 		} 
 		
 		$(document).on("click", ".sangpum", function(){
-			location.href ="/product/read?pcode=" + $(this).attr("value")
+			location.href ="/product/product_detail?pcode=" + $(this).attr("value")
 		})
 		
 		console.log(response.pageno);
@@ -84,7 +84,7 @@
 </script>
 </head>
 <body>
- <!-- 고정 -->
+ <!-- nav 고정 -->
     <nav id="navBox">
         <img id="cate-img" src="https://ifh.cc/g/zRKsd8.jpg" alt="용품메인이미지">
             <ul class="category">
@@ -109,7 +109,7 @@
 		<li class='page-item'><a class='page-link'></a></li>
 	</ul>	
 				
-<!-- 고정 -->
+<!-- footer 고정 -->
     <footer id="footer">
         <img class="footer" src="https://ifh.cc/g/NMjHLc.png" alt="푸터박스">
     </footer>

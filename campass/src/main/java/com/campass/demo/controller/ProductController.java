@@ -61,6 +61,9 @@ public class ProductController {
 		}
 		return null;
 	}
+	
+//	@GetMapping(value="/product/detail", produces = MediaType.APPLICATION_JSON_VALUE)
+//	public ResponseEntity<ProductDto.PdtDetail> productDetail(@RequestParam)
 
 }
 

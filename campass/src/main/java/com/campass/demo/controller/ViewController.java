@@ -21,7 +21,7 @@ public class ViewController {
 		return new ModelAndView("/product/pcart");
 	}
 	
-	@GetMapping("/product/read")
+	@GetMapping("/product/product_detail")
 	public void read() {
 
 	}
