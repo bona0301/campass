@@ -17,6 +17,43 @@
 		});
 		
 		printProduct(test1);
+		
+        $('#minus').click(function(e){
+            e.preventDefault();
+            let stat = $('#numberUpDown').text();
+            let  num = parseInt(stat,10);
+            num--;
+            if(num<=0){
+                alert('최소 주문은 한 개 이상입니다.');
+                num =1;
+            }
+            $('#numberUpDown').text(num);
+        });
+		
+        $('#plus').click(function(e){
+            e.preventDefault();
+            let stat = $('#numberUpDown').text();
+            let num = parseInt(stat,10);
+            num++;
+            if(num>8){
+                alert('더 이상 늘릴 수 없습니다.');
+                num=8;
+            }
+            $('#numberUpDown').text(num);
+        });
+        
+        let sum = 0;
+    	$('.num').on('click', function() {
+        	$(this).each(function() {
+            	sum += parseInt($(this).text());
+            })
+            $('.total').text(sum);
+        });
+        $('.reset').on('click', function() {
+        	sum = 0;
+        	$('.total').text(sum);
+        });
+		
 	})
 	
 	function getpCode() {
@@ -39,6 +76,8 @@
 		$("<li>").text("가격 : "+product.pprice+"원").appendTo("#detail");
 		$("<li>").text("평점 : "+product.pstarAvg).appendTo("#detail");
 	}
+	
+	
 </script>
 </head>
 <body>
@@ -65,16 +104,28 @@
 	</ul>
 	
 	<!-- 수량 -->
-	<div>
-		<input type="button" value="-" name="minus">
-		<input type="text" value="1" size="2" max="">
-		<input type="button" value="+" name="add"><br>
-		TOTAL : <input type="text" name="sum" size="11" readonly>원
-	</div>
+	<div class="number">
+        <input type="button" value="-" id="minus" class="num">
+        <span id="numberUpDown">1</span>
+        <input type="button" value="+" id="plus" class="num">
+    </div>
+	
+	<div class="total">TOTAL : ${product.pprice}</div>
 	
 	<!-- 장바구니 버튼 -->
-	<button>장바구니</button>
-	<button>구매하기</button>
+	<div>
+		<button>장바구니</button>
+		<button>구매하기</button>
+	</div>
+	<br>
+	<br>
+	
+    <!-- 상세,한줄평,1:1문의 버튼 -->
+    <div id="buttons">
+    	<button type="button" class="btn btn-light" id="detailPage">상세정보</button>
+    	<button type="button" class="btn btn-light" id="review">한줄평</button>
+    	<button type="button" class="btn btn-light" id="qna">1:1문의</button>
+    </div>
     
     
 <!-- footer 고정 -->
