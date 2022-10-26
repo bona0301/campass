@@ -10,6 +10,9 @@ import com.campass.demo.dto.ProductDto;
 
 @Mapper
 public interface ProductDao {
+	// 카테고리 리스트 읽어오기
+	public List<ProductDto.ReadCategoryList> ReadCateList();
+	
 	// 목록페이지
 	public List<ProductDto.ForProductList> productList();
 	
@@ -24,4 +27,8 @@ public interface ProductDao {
 	
 	// 상세페이지 
 	public Optional<ProductDto.PdtDetail> productDetail(Integer pCode);
+	
+	// 한줄평 목록
+	public List<ProductDto.ReadReviewList> reviewList(String username);
+				
 }

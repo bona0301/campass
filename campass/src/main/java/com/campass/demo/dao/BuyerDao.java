@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.campass.demo.entity.*;
+import com.campass.demo.entity.Buyer;
 @Mapper
 public interface BuyerDao {
 	public Boolean existsBybId(String username); //존재하는지? // 중복검사
@@ -27,7 +27,7 @@ public interface BuyerDao {
 	//public Optional<Member> findByCheckcode(String checkcode);
 	//체크코드 입력하면 member를 가져옴
 	
-//	public List<String> findByCheckcodeIsNotEmpty();
+	public List<String> findByCheckcodeIsNotEmpty();
 	
 	public Integer deleteByUsernames(List<String> usernames);
 	

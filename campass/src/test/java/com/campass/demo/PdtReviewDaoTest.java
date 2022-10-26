@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.campass.demo.dao.PdtReviewDao;
 import com.campass.demo.entity.PdtReview;
@@ -20,10 +21,11 @@ public class PdtReviewDaoTest {
 		assertNotNull(dao);
 	}
 	
+	// pStar, pReviewContent, username,pOdtNo, pOrderNo, pCode, shipName
+	@Transactional
 	@Test
 	public void SaveTest() {
-		PdtReview pdtReview = PdtReview.builder().pStar(1).pReviewContent("JMTGR").username("spring").pCode(1).build();
-	
+		PdtReview pdtReview = PdtReview.builder().pStar(3).pReviewContent("JMTGR").username("spring").pOdtNo(333).pOrderNo(122).pCode(43).shipName("인천일보아카데미").build();
 		assertEquals(1, dao.saveReview(pdtReview));
 	}
 	

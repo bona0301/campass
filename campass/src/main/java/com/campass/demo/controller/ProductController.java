@@ -14,12 +14,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.campass.demo.dto.ProductDto;
+import com.campass.demo.dto.ResponseDto;
 import com.campass.demo.service.ProductService;
 
 @Controller
 public class ProductController {
 	@Autowired
 	private ProductService service;
+	
+	// 카테고리 리스트
+	@GetMapping(value = "/product/cateList", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ResponseDto> readCategory(){
+		return ResponseEntity.ok(new ResponseDto("카테고리 리스트 출력", service.categoryRead()));
+	}
 	
 	// 글목록 출력
 	@GetMapping(value = "/product/list", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -64,8 +71,12 @@ public class ProductController {
 	@GetMapping(value="/product/detail", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProductDto.PdtDetail> productDetail(Integer pCode){
 		return ResponseEntity.ok(service.detail(pCode));
-		
-		
+
+	}
+	
+	@GetMapping(value="/product/detail/review", produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ResponseDto> read(String username){
+		return ResponseEntity.ok(new ResponseDto("상세페이지의 용품 리뷰 출력" ,service.reviewList(username)));
 	}
 	
 }

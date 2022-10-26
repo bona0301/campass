@@ -5,132 +5,106 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<title>product_detail</title>
 <link href="https://ifh.cc/g/NdOrVp.png" rel="icon">
-<link rel="stylesheet" href="/css/product/newMain.css">
-<script>
-	$(document).ready(async function(){
-		const pCode = getpCode();
-		const test1 = await $.ajax({
-			url:"/product/detail",
-			data:{pCode}
-		});
-		
-		printProduct(test1);
-		
-        $('#minus').click(function(e){
-            e.preventDefault();
-            let stat = $('#numberUpDown').text();
-            let  num = parseInt(stat,10);
-            num--;
-            if(num<=0){
-                alert('최소 주문은 한 개 이상입니다.');
-                num =1;
-            }
-            $('#numberUpDown').text(num);
-        });
-		
-        $('#plus').click(function(e){
-            e.preventDefault();
-            let stat = $('#numberUpDown').text();
-            let num = parseInt(stat,10);
-            num++;
-            if(num>8){
-                alert('더 이상 늘릴 수 없습니다.');
-                num=8;
-            }
-            $('#numberUpDown').text(num);
-        });
-        
-        let sum = 0;
-    	$('.num').on('click', function() {
-        	$(this).each(function() {
-            	sum += parseInt($(this).text());
-            })
-            $('.total').text(sum);
-        });
-        $('.reset').on('click', function() {
-        	sum = 0;
-        	$('.total').text(sum);
-        });
-		
-	})
-	
-	function getpCode() {
-		const pCode = location.search.substring(7);
-		if(isNaN(pCode)) {
-			alert("상품을 찾을 수 없습니다");
-			location.href = "/";
-		}
-		return pCode;
-	}
-	
-	
-	function printProduct(product){
-		console.log(product);
-		const img = $("<div>").attr("value",product.pmainImg).attr("class","product").appendTo("#img")
-		$("<img>").attr("src", product.pmainImg).attr("class","pmainImgClass2").appendTo(img);
-		
-		$("<li>").text("브랜드 : "+product.pbrand).appendTo("#detail");
-		$("<li>").text("상품명 : "+product.pname).appendTo("#detail");
-		$("<li>").text("가격 : "+product.pprice+"원").appendTo("#detail");
-		$("<li>").text("평점 : "+product.pstarAvg).appendTo("#detail");
-	}
-	
-	
-</script>
+<!-- css,js -->
+<link rel="stylesheet" href="/css/product/nav.css">
+<link rel="stylesheet" href="/css/product/footer.css">
+<link rel="stylesheet" href="/css/product/product_detail.css">
+<script src="/js/product_detail.js"></script> 
+<title>CAMPASS</title>
 </head>
 <body>
 <!-- nav 고정 -->
-    <nav id="navBox">
-        <img id="cate-img" src="https://ifh.cc/g/zRKsd8.jpg" alt="용품메인이미지">
-            <ul class="category">
-                <li>ALL</li>
-                <li>텐트</li>
-                <li>침낭/매트</li>
-                <li>테이블/의자</li>
-                <li>식기</li>
-                <li>기타</li>
-            </ul>
-    </nav>
+<nav id="nav" th:replace="/fragments/nav"></nav>
 
 <!-- 용품 상세페이지 -->
+<section id="detail_content">
 	<!--  용품이미지 -->
-	<div id="img">
-	</div>
+	<div id="img"></div>
 
 	<!-- 용품정보 -->
-	<ul id="detail">
-	</ul>
-	
-	<!-- 수량 -->
-	<div class="number">
-        <input type="button" value="-" id="minus" class="num">
-        <span id="numberUpDown">1</span>
-        <input type="button" value="+" id="plus" class="num">
-    </div>
-	
-	<div class="total">TOTAL : ${product.pprice}</div>
+	<ul id="detail"></ul>
 	
 	<!-- 장바구니 버튼 -->
-	<div>
-		<button>장바구니</button>
-		<button>구매하기</button>
+	<div id="cartBtn">
+		<button class="cart">장바구니</button>
+		<button class="buying">구매하기</button>
 	</div>
 	<br>
 	<br>
 	
-    <!-- 상세,한줄평,1:1문의 버튼 -->
+    <!-- 상세정보 btn -->
     <div id="buttons">
-    	<button type="button" class="btn btn-light" id="detailPage">상세정보</button>
-    	<button type="button" class="btn btn-light" id="review">한줄평</button>
-    	<button type="button" class="btn btn-light" id="qna">1:1문의</button>
+    	<a href="#contentbtn" id="contentbtn">상세정보</a>
+    	<a href="#reviewList">한줄평</a>
+    	<a href="#question">1:1문의</a>
+    	<a href="#AS">배송/교환/반품/AS</a>
     </div>
     
+    <!-- 상세이미지 -->
+    <div id="content"></div>
     
+    <!-- 한줄평 btn -->
+    <div id="buttons">
+    	<a href="#contentbtn">상세정보</a>
+    	<a href="#reviewList" id="reviewList">한줄평</a>
+    	<a href="#question">1:1문의</a>
+    	<a href="#AS">배송/교환/반품/AS</a>
+    </div>
+    
+    <!-- 한줄평 -->
+    <section id="reviewList">
+    	<table class="table table-hover">
+			<thead>
+				<tr id="reviewContent">
+					<th>번호</th>
+					<th>별점</th>
+					<th>내용</th>
+					<th>작성자</th>
+					<th>작성일</th>
+				</tr>
+			</thead>
+				<tr id="printReviewList"></tr>
+				
+				
+					<!-- <template id="tr_template">
+						<tr>
+							<td>{previewNo}</td>
+							<td>{pstar}</td>
+							<td>{previewContent}</td>
+							<td>{username}</td>
+							<td>{previewDate}</td>
+						</tr>
+					</template> -->
+		</table>
+    </section>
+    
+    <!-- 1:1문의 btn -->
+    <div id="buttons">
+    	<a href="#contentbtn">상세정보</a>
+    	<a href="#reviewList">한줄평</a>
+    	<a href="#question" id="question">1:1문의</a>
+    	<a href="#AS">배송/교환/반품/AS</a>
+    </div>
+    
+    <div id="question">
+    	<p><b>1:1문의는 CAMPASS 카카오톡 채널을 이용해 주시길 바랍니다</b></p>
+    </div>
+    
+    <!-- 배송/교환/반품/AS btn -->
+    <div id="buttons">
+    	<a href="#contentbtn">상세정보</a>
+    	<a href="#reviewList">한줄평</a>
+    	<a href="#question">1:1문의</a>
+    	<a href="#AS" id="AS">배송/교환/반품/AS</a>
+    </div>
+    
+    <div id="AS">
+    	<img src="https://i.postimg.cc/cJnRmVQf/image.png">
+    </div>
+    
+</section>    
 <!-- footer 고정 -->
-    <footer id="footer">
-        <img class="footer" src="https://ifh.cc/g/NMjHLc.png" alt="푸터박스">
-    </footer>
+    <footer id="footer" th:replace="/fragments/footer"></footer>
 </body>
 </html>

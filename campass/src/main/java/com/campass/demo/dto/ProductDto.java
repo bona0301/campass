@@ -1,11 +1,12 @@
 package com.campass.demo.dto;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.campass.demo.entity.Product;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,12 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access=AccessLevel.PRIVATE)
 public class ProductDto {
+	@Data
+	public static class ReadCategoryList{
+		private Integer pCateCode;
+		private String pCateName;
+	}
+	
 	// 목록
 	@Data
 	public static class ForProductList {
@@ -67,5 +74,14 @@ public class ProductDto {
 		private List<ProductInput> list;
 		
 	}
-	// 리뷰는 pdtReviewDto
+	
+	@Data
+	public static class ReadReviewList{
+		//private Integer pReviewNo;
+		private Integer pStar;
+		private String pReviewContent;
+		private String username;
+		@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
+		private LocalDate pReviewDate;
+	}
 }

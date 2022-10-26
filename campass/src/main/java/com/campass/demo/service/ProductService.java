@@ -18,11 +18,12 @@ public class ProductService {
    private ProductDao dao;
    @Value("${campass.pagesize}")
    private Integer pagesize;
-   @Value("c:/productImg")
-   private String productFolder;
-   @Value("http://localhost:8087/productImg/")
-   private String productPath;
    
+   // 카테고리 리스트 출력
+	public List<ProductDto.ReadCategoryList> categoryRead(){
+		return dao.ReadCateList();
+	}
+	
    // 용품 리스트 출력
    public List<ProductDto.ForProductList> list(){
       return dao.productList();   
@@ -53,5 +54,10 @@ public class ProductService {
    // 용품 상세페이지 출력
    public ProductDto.PdtDetail detail(Integer pCode){
       return dao.productDetail(pCode).get();
+   }
+   
+   // 상세페이지 안에 있는 한줄평 출력
+   public List<ProductDto.ReadReviewList> reviewList(String username){
+		return dao.reviewList(username);
    }
 }

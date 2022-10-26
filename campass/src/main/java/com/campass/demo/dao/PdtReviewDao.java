@@ -1,18 +1,13 @@
 package com.campass.demo.dao;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.campass.demo.dto.PdtReviewDto;
 import com.campass.demo.entity.PdtReview;
 
 @Mapper
 public interface PdtReviewDao {
-	// 한줄평 목록
-	public List<PdtReviewDto.ReadReviewList> reviewList(String username);
-			
 	// 댓글 등록
 	public Integer saveReview(PdtReview pdtReview);
 	

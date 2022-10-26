@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+    
+/* 상품 목록 페이지 */
+#list {
+	text-align:center;
+	margin:20px 300px 50px 300px;
+	font-size: 15px;
+}
+
+#list tr{
+	display: inline-block;
+	margin:30px;
+	width:250px;
+	height:230px;
+}    
+
+#list td{
+	display:block;
+	text-align:left;
+	cursor: pointer;
+}    
+    
+.pmainImgClass {
+	width:200px;
+	height:200px;
+	cursor: pointer;
+}
+    
+/* 메인 페이지 pagination */
+.pagination {
+	display: flex;
+	justify-content: center;
+}
+
+.pagination li {
+	display: none;
+}
